@@ -1,7 +1,8 @@
+import { IProduct } from "./ProductInterface";
 /**
  * Product class
  */
-export class Product {
+export class Product implements IProduct {
   // Product attributes
   private _name: string;
   private _descripion: string;
