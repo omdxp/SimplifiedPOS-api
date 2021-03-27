@@ -3,10 +3,10 @@
  */
 export class Product {
   // Product attributes
-  private name: string;
-  private descripion: string;
-  private price: number;
-  private quantity: number;
+  private _name: string;
+  private _descripion: string;
+  private _price: number;
+  private _quantity: number;
 
   /**
    * Product constructor
@@ -21,10 +21,42 @@ export class Product {
     price: number,
     quantity: number
   ) {
-    this.name = name;
-    this.descripion = description;
-    this.price = price;
-    this.quantity = quantity;
+    this._name = name;
+    this._descripion = description;
+    this._price = price;
+    this._quantity = quantity;
+  }
+
+  public get name(): string {
+    return this._name;
+  }
+
+  public set name(name: string) {
+    this._name = name;
+  }
+
+  public get description(): string {
+    return this._descripion;
+  }
+
+  public set description(description: string) {
+    this._descripion = description;
+  }
+
+  public get price(): number {
+    return this._price;
+  }
+
+  public set price(price: number) {
+    this._price = price;
+  }
+
+  public get quantity(): number {
+    return this._quantity;
+  }
+
+  public set quantity(quantity: number) {
+    this._quantity = quantity;
   }
 
   /**
@@ -32,6 +64,6 @@ export class Product {
    * @returns A description for the specified product with all of its attributes.
    */
   public format(): string {
-    return `${this.name}: ${this.descripion}. It costs: ${this.price} and have ${this.quantity} items`;
+    return `${this.name}: ${this._descripion}. It costs: ${this._price} and have ${this._quantity} items`;
   }
 }
