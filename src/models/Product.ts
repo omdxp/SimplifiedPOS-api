@@ -1,4 +1,4 @@
-import { IProduct } from "./ProductInterface";
+import { IProduct } from "../interfaces/IProduct";
 /**
  * Product class
  */
