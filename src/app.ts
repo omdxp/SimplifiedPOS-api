@@ -1,5 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from "express";
-import { Product } from "./models/Product";
+import { Product, ProductTypes } from "./models/Product";
 
 const app: Application = express(); // initialize express app
 const port = 5000; // port to be listened from
@@ -15,7 +15,13 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
 // add product route
 app.get("/add-product", (req: Request, res: Response, next: NextFunction) => {
   console.log("Adding a product...");
-  const product: Product = new Product("name", "description", 250, 2);
+  const product: Product = new Product(
+    "name",
+    "description",
+    250,
+    2,
+    ProductTypes.ELECTRONICS
+  );
   console.log(product.format());
 
   res.send("Product has been added!");

@@ -1,3 +1,5 @@
+import { ProductTypes } from "../models/Product";
+
 /**
  * Product interface
  */
@@ -6,4 +8,5 @@ export interface IProduct {
   description: string;
   price: number;
   quantity: number;
+  productType: ProductTypes;
 }

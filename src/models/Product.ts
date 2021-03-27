@@ -1,5 +1,15 @@
 import { IHasFormatter } from "../interfaces/IHasFormatter";
 import { IProduct } from "../interfaces/IProduct";
+
+/**
+ * ProductTypes enum
+ */
+export enum ProductTypes {
+  FOOD,
+  ELECTRONICS,
+  CLOTHES,
+}
+
 /**
  * Product class
  */
@@ -9,6 +19,7 @@ export class Product implements IProduct, IHasFormatter {
   private _descripion: string;
   private _price: number;
   private _quantity: number;
+  private _productType: ProductTypes;
 
   /**
    * Product constructor
@@ -16,17 +27,20 @@ export class Product implements IProduct, IHasFormatter {
    * @param description description of product.
    * @param price price of product.
    * @param quantity quantity of product.
+   * @param productType product type [FOOD, ELECTRONICS, CLOTHES]
    */
   public constructor(
     name: string,
     description: string,
     price: number,
-    quantity: number
+    quantity: number,
+    productType: ProductTypes
   ) {
     this._name = name;
     this._descripion = description;
     this._price = price;
     this._quantity = quantity;
+    this._productType = productType;
   }
 
   public get name(): string {
@@ -61,11 +75,19 @@ export class Product implements IProduct, IHasFormatter {
     this._quantity = quantity;
   }
 
+  public get productType(): ProductTypes {
+    return this._productType;
+  }
+
+  public set productType(productType: ProductTypes) {
+    this._productType = productType;
+  }
+
   /**
    * format
    * @returns A description for the specified product with all of its attributes.
    */
   public format(): string {
-    return `${this.name}: ${this._descripion}. It costs: ${this._price} and have ${this._quantity} items`;
+    return `${this.name}: ${this._descripion}. It costs: ${this._price} and have ${this._quantity} items and its type is ${this._productType}`;
   }
 }

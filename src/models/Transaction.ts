@@ -11,7 +11,7 @@ export class Transaction implements ITransaction, IHasFormatter {
   private _products: Product[];
 
   /**
-   *
+   * Transaction constructor
    * @param id transaction's id.
    * @param products list of products for this transaction.
    */
