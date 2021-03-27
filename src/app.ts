@@ -15,8 +15,8 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
 // add product route
 app.get("/add-product", (req: Request, res: Response, next: NextFunction) => {
   console.log("Adding a product...");
-  const product = new Product("name", "description", 250, 2);
-  console.log(product);
+  const product: Product = new Product("name", "description", 250, 2);
+  console.log(product.format());
 
   res.send("Product has been added!");
 });
