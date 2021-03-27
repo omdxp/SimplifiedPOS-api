@@ -1,8 +1,9 @@
+import { IHasFormatter } from "../interfaces/IHasFormatter";
 import { IProduct } from "../interfaces/IProduct";
 /**
  * Product class
  */
-export class Product implements IProduct {
+export class Product implements IProduct, IHasFormatter {
   // Product attributes
   private _name: string;
   private _descripion: string;
