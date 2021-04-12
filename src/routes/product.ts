@@ -1,11 +1,30 @@
 import { IRouter, Router, Request, Response } from "express";
+import { IProduct } from "../interfaces/IProduct";
+import { ProductModel } from "../models/ProductSchema";
 
 const router: IRouter = Router();
 
 // add produt route
-router.get("/add-product", (req: Request, res: Response) => {
+router.post("/add-product", async (req: Request, res: Response) => {
   console.log("Adding a product...");
-  res.send("Product has been added!");
+  const {
+    id,
+    name,
+    description,
+    price,
+    quantity,
+    productType,
+  }: IProduct = req.body;
+  const product = ProductModel.build({
+    id,
+    name,
+    description,
+    price,
+    quantity,
+    productType,
+  });
+  await product.save();
+  return res.status(201).send(product);
 });
 
 // delete a product route

@@ -1,4 +1,4 @@
-import express, { Application } from "express";
+import express, { Application, Request, Response } from "express";
 import mongoose from "mongoose";
 import { json } from "body-parser";
 import { productRouter } from "./routes/product";
@@ -10,8 +10,8 @@ const port: number = 5000; // port to be listened from
 app.use(json);
 
 // default route
-app.get("/", () => {
-  console.log("The API is up and running!");
+app.get("/", (req: Request, res: Response) => {
+  return res.send("The API is up and running!");
 });
 
 // product route
