@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { IModel } from "../interfaces/IModel";
 import { ITransaction } from "../interfaces/ITransaction";
 import { Product } from "./Product";
 
@@ -22,6 +23,9 @@ transactionSchema.statics.build = (attr: ITransaction) => {
   return new TransactionModel(attr);
 };
 
-const TransactionModel = mongoose.model("Transaction", transactionSchema);
+const TransactionModel = mongoose.model<any, IModel<ITransaction>>(
+  "Transaction",
+  transactionSchema
+);
 
 export { TransactionModel };
