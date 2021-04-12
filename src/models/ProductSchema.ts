@@ -30,10 +30,10 @@ const productSchema = new mongoose.Schema({
   },
 });
 
-const ProductModel = mongoose.model("Product", productSchema);
-
-const build = (attr: IProduct) => {
+productSchema.statics.build = (attr: IProduct) => {
   return new ProductModel(attr);
 };
+
+const ProductModel = mongoose.model("Product", productSchema);
 
 export { ProductModel };

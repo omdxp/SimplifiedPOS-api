@@ -18,10 +18,10 @@ const transactionSchema = new mongoose.Schema({
   },
 });
 
-const TransactionModel = mongoose.model("Transaction", transactionSchema);
-
-const build = (attr: ITransaction) => {
+transactionSchema.statics.build = (attr: ITransaction) => {
   return new TransactionModel(attr);
 };
+
+const TransactionModel = mongoose.model("Transaction", transactionSchema);
 
 export { TransactionModel };
