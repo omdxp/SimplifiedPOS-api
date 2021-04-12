@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ITransaction } from "../interfaces/ITransaction";
 import { Product } from "./Product";
 
 // defining transaction schema
@@ -17,7 +18,10 @@ const transactionSchema = new mongoose.Schema({
   },
 });
 
-export const TransactionModel = mongoose.model(
-  "Transaction",
-  transactionSchema
-);
+const TransactionModel = mongoose.model("Transaction", transactionSchema);
+
+const build = (attr: ITransaction) => {
+  return new TransactionModel(attr);
+};
+
+export { TransactionModel };
