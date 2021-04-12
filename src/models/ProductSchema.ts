@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { IProduct } from "../interfaces/IProduct";
 import { ProductTypes } from "./Product";
 
 // defining product schema
@@ -29,4 +30,10 @@ const productSchema = new mongoose.Schema({
   },
 });
 
-export const ProductModel = mongoose.model("Product", productSchema);
+const ProductModel = mongoose.model("Product", productSchema);
+
+const build = (attr: IProduct) => {
+  return new ProductModel(attr);
+};
+
+export { ProductModel };
