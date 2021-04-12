@@ -19,3 +19,5 @@ router.get("/refund-transaction", (req: Request, res: Response) => {
   console.log("Refunding a transaction...");
   console.log("Transaction has been refunded!");
 });
+
+export { router as transactionRouter };
