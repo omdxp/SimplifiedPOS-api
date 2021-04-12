@@ -15,6 +15,7 @@ app.get("/add-product", (req: Request, res: Response, next: NextFunction) => {
   console.log("Request:", req);
 
   const product: Product = new Product(
+    "15446521",
     "name",
     "description",
     250,

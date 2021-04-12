@@ -24,6 +24,7 @@ export class Product implements IProduct, IHasFormatter {
 
   /**
    * Product constructor
+   * @param id product's id.
    * @param name name of product.
    * @param description description of product.
    * @param price price of product.
@@ -31,6 +32,7 @@ export class Product implements IProduct, IHasFormatter {
    * @param productType product type [FOOD, ELECTRONICS, CLOTHES]
    */
   public constructor(
+    id: string,
     name: string,
     description: string,
     price: number,
