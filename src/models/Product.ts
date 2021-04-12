@@ -15,6 +15,7 @@ export enum ProductTypes {
  */
 export class Product implements IProduct, IHasFormatter {
   // Product attributes
+  private _id: string;
   private _name: string;
   private _descripion: string;
   private _price: number;
@@ -41,6 +42,14 @@ export class Product implements IProduct, IHasFormatter {
     this._price = price;
     this._quantity = quantity;
     this._productType = productType;
+  }
+
+  public get id(): string {
+    return this._id;
+  }
+
+  public set id(id: string) {
+    this._id = id;
   }
 
   public get name(): string {
