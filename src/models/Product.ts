@@ -39,6 +39,7 @@ export class Product implements IProduct, IHasFormatter {
     quantity: number,
     productType: ProductTypes
   ) {
+    this._id = id;
     this._name = name;
     this._descripion = description;
     this._price = price;

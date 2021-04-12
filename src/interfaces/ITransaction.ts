@@ -6,4 +6,5 @@ import { Product } from "../models/Product";
 export interface ITransaction {
   id: string;
   products: Product[];
+  refunded: boolean;
 }
