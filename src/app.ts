@@ -1,5 +1,4 @@
 import express, { Application, Request, Response, NextFunction } from "express";
-import { Product, ProductTypes } from "./models/Product";
 
 const app: Application = express(); // initialize express app
 const port: number = 5000; // port to be listened from
@@ -8,32 +7,6 @@ const port: number = 5000; // port to be listened from
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.send("The API is up and running");
 });
-
-// add product route
-app.get("/add-product", (req: Request, res: Response, next: NextFunction) => {
-  console.log("Adding a product...");
-  console.log("Request:", req);
-
-  const product: Product = new Product(
-    "15446521",
-    "name",
-    "description",
-    250,
-    2,
-    ProductTypes.ELECTRONICS
-  );
-  console.log(product.format());
-  res.send("Product has been added!");
-});
-
-// delete product route
-app.get(
-  "/delete-product",
-  (req: Request, res: Response, next: NextFunction) => {
-    console.log("Deleting a product...");
-    res.send("Product has been deleted!");
-  }
-);
 
 // add transaction route
 app.get(
