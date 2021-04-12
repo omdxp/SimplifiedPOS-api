@@ -1,5 +1,5 @@
 import { Model } from "mongoose";
 
-export interface IModel<attrType> extends Model<any> {
-  build(attr: attrType): any;
+export interface IModel<AttrType, DocumentType> extends Model<any> {
+  build(attr: AttrType): DocumentType;
 }

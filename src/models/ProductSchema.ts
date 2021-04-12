@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { IModel } from "../interfaces/IModel";
 import { IProduct } from "../interfaces/IProduct";
+import { IProductDoc } from "../interfaces/IProductDoc";
 import { ProductTypes } from "./Product";
 
 // defining product schema
@@ -35,7 +36,7 @@ productSchema.statics.build = (attr: IProduct) => {
   return new ProductModel(attr);
 };
 
-const ProductModel = mongoose.model<any, IModel<IProduct>>(
+const ProductModel = mongoose.model<IProductDoc, IModel<IProduct, IProductDoc>>(
   "Product",
   productSchema
 );
